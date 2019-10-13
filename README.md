@@ -1,6 +1,4 @@
-# doctl-kubectl
-
-[![CircleCI](https://circleci.com/gh/henry40408/doctl-kubectl.svg?style=shield)](https://circleci.com/gh/henry40408/doctl-kubectl)
+# doctl-kubectl [![CircleCI](https://circleci.com/gh/henry40408/doctl-kubectl.svg?style=shield)](https://circleci.com/gh/henry40408/doctl-kubectl) [![Docker Repository on Quay](https://quay.io/repository/henry40408/doctl-kubectl/status "Docker Repository on Quay")](https://quay.io/repository/henry40408/doctl-kubectl)
 
 > Docker image containing `kubectl`, `helm` and `doctl`.
 
