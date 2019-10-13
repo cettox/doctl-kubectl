@@ -1,0 +1,10 @@
+.bundle/
+.circleci/
+.git/
+spec/
+vendor/
+.gitignore
+.ruby-version
+Gemfile
+Gemfile.lock
+README.md
