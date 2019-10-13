@@ -2,10 +2,6 @@
 
 > Docker image containing `kubectl`, `helm` and `doctl`.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
 Docker image containing `kubectl`, `helm` and `doctl`. According to [DigitalOcean](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/) documentation, it's recommended to connect the cluster with `doctl`. Since most Docker images I found on Docker Hub don't come with `doctl`, it's painful to integrate DigitalOcean Kubernetes with CI, so I create this Docker image by myself.
 
 ## Usage example
@@ -21,6 +17,14 @@ $ docker run --rm -it henry40408/doctl-kubectl:latest sh
 
 ```sh
 $ docker build -t YOUR_USERNAME/doctl-kubectl .
+```
+
+## How to test
+
+```sh
+$ rbenv install
+$ bundle
+$ rspec spec
 ```
 
 ## Meta
