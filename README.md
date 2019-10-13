@@ -1,4 +1,6 @@
-# doctl-kubectl [![CircleCI](https://circleci.com/gh/henry40408/doctl-kubectl.svg?style=shield)](https://circleci.com/gh/henry40408/doctl-kubectl) ![Docker Automated build](https://img.shields.io/docker/automated/henry40408/doctl-kubectl) ![Docker Build Status](https://img.shields.io/docker/build/henry40408/doctl-kubectl) ![Docker Pulls](https://img.shields.io/docker/pulls/henry40408/doctl-kubectl) ![Docker Stars](https://img.shields.io/docker/stars/henry40408/doctl-kubectl) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/henry40408/doctl-kubectl) ![MicroBadger Size](https://img.shields.io/microbadger/image-size/henry40408/doctl-kubectl)
+# doctl-kubectl
+
+[![CircleCI](https://circleci.com/gh/henry40408/doctl-kubectl.svg?style=shield)](https://circleci.com/gh/henry40408/doctl-kubectl) ![Docker Automated build](https://img.shields.io/docker/automated/henry40408/doctl-kubectl) ![Docker Build Status](https://img.shields.io/docker/build/henry40408/doctl-kubectl) ![Docker Pulls](https://img.shields.io/docker/pulls/henry40408/doctl-kubectl) ![Docker Stars](https://img.shields.io/docker/stars/henry40408/doctl-kubectl) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/henry40408/doctl-kubectl) ![MicroBadger Size](https://img.shields.io/microbadger/image-size/henry40408/doctl-kubectl)
 
 > Docker image containing `kubectl`, `helm` and `doctl`.
 
