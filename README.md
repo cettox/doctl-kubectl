@@ -1,5 +1,7 @@
 # doctl-kubectl
 
+[![CircleCI](https://circleci.com/gh/henry40408/doctl-kubectl.svg?style=shield)](https://circleci.com/gh/henry40408/doctl-kubectl)
+
 > Docker image containing `kubectl`, `helm` and `doctl`.
 
 Docker image containing `kubectl`, `helm` and `doctl`. According to [DigitalOcean](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/) documentation, it's recommended to connect the cluster with `doctl`. Since most Docker images I found on Docker Hub don't come with `doctl`, it's painful to integrate DigitalOcean Kubernetes with CI, so I create this Docker image by myself.
