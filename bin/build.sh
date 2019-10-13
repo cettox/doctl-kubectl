@@ -12,6 +12,8 @@ KUBECTL_CHECKSUM=fccf152588edbaaa21ca94c67408b8754f8bc55e49470380e10cf987be27495
 KUBECTL_VERSION=1.16.0
 
 setup() {
+    mkdir /lib64
+    ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
     apk add --no-cache wget
 }
 
