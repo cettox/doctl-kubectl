@@ -21,6 +21,10 @@ describe 'Dockerfile' do
         expect(doctl_version).to include('1.32.3')
     end
 
+    it 'has skaffold' do
+        expect(skaffold_version).to include('0.40.0')
+    end
+
     def kubectl_version
         command('kubectl version').stdout
     end
@@ -31,5 +35,9 @@ describe 'Dockerfile' do
 
     def doctl_version
         command('doctl version').stdout
+    end
+
+    def skaffold_version
+        command('skaffold version').stdout
     end
 end
