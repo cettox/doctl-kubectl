@@ -11,6 +11,9 @@ HELM_VERSION=2.14.3
 KUBECTL_CHECKSUM=fccf152588edbaaa21ca94c67408b8754f8bc55e49470380e10cf987be27495a8411d019d807df2b2c1c7620f8535e8f237848c3c1ac3791b91da8df59dea5aa
 KUBECTL_VERSION=1.16.0
 
+SKAFFOLD_CHECKSUM=f2d876e60cfc0dfb0fc79263bc9900e9c08a8300bf1e4b2bbfef3f9936cc78e0
+SKAFFOLD_VERSION=0.40.0
+
 setup() {
     mkdir /lib64
     ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
@@ -63,8 +66,20 @@ install_kubectl() {
     rm -rf kubernetes-client-linux-amd64.tar.gz kubernetes
 }
 
+install_skaffold() {
+    wget https://github.com/GoogleContainerTools/skaffold/releases/download/v${SKAFFOLD_VERSION}/skaffold-linux-amd64
+
+    echo "${SKAFFOLD_CHECKSUM}  skaffold-linux-amd64" > skaffold.checksum
+    sha256sum -c skaffold.checksum
+    rm skaffold.checksum
+
+    mv skaffold-linux-amd64 /usr/local/bin/skaffold
+    chmod +x /usr/local/bin/skaffold
+}
+
 setup
 install_kubectl
 install_helm
 install_doctl
+install_skaffold
 teardown
