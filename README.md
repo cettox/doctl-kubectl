@@ -27,7 +27,7 @@ $ docker build -t YOUR_USERNAME/doctl-kubectl .
 ```sh
 $ rbenv install
 $ bundle
-$ rspec spec
+$ bundle exec rspec
 ```
 
 ## Meta
