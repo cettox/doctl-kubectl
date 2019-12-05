@@ -5,8 +5,11 @@ set -eo pipefail
 DOCTL_CHECKSUM=ea22347e8a578f9e4ef11f61c225b820dbcd9893c835150cecf495c5f552ec5b
 DOCTL_VERSION=1.32.3
 
-HELM_CHECKSUM=38614a665859c0f01c9c1d84fa9a5027364f936814d1e47839b05327e400bf55
-HELM_VERSION=2.14.3
+HELM_2_CHECKSUM=7eebaaa2da4734242bbcdced62cc32ba8c7164a18792c8acdf16c77abffce202
+HELM_2_VERSION=2.16.1
+
+HELM_3_CHECKSUM=10e1fdcca263062b1d7b2cb93a924be1ef3dd6c381263d8151dd1a20a3d8c0dc
+HELM_3_VERSION=3.0.0
 
 KUBECTL_CHECKSUM=fccf152588edbaaa21ca94c67408b8754f8bc55e49470380e10cf987be27495a8411d019d807df2b2c1c7620f8535e8f237848c3c1ac3791b91da8df59dea5aa
 KUBECTL_VERSION=1.16.0
@@ -38,18 +41,32 @@ install_doctl() {
     rm -rf doctl-${DOCTL_VERSION}-linux-amd64.tar.gz
 }
 
-install_helm() {
-    wget https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz
+install_helm_2() {
+    wget https://get.helm.sh/helm-v${HELM_2_VERSION}-linux-amd64.tar.gz
 
-    echo "${HELM_CHECKSUM}  helm-v${HELM_VERSION}-linux-amd64.tar.gz" > helm.checksum
+    echo "${HELM_2_CHECKSUM}  helm-v${HELM_2_VERSION}-linux-amd64.tar.gz" > helm.checksum
     sha256sum -c helm.checksum
     rm helm.checksum
 
-    tar zxvf helm-v${HELM_VERSION}-linux-amd64.tar.gz
+    tar zxvf helm-v${HELM_2_VERSION}-linux-amd64.tar.gz
+    mv linux-amd64/helm /usr/local/bin/helm2
+    chmod +x /usr/local/bin/helm2
+    
+    rm -rf helm-v${HELM_2_VERSION}-linux-amd64.tar.gz linux-amd64
+}
+
+install_helm_3() {
+    wget https://get.helm.sh/helm-v${HELM_3_VERSION}-linux-amd64.tar.gz
+
+    echo "${HELM_3_CHECKSUM}  helm-v${HELM_3_VERSION}-linux-amd64.tar.gz" > helm.checksum
+    sha256sum -c helm.checksum
+    rm helm.checksum
+
+    tar zxvf helm-v${HELM_3_VERSION}-linux-amd64.tar.gz
     mv linux-amd64/helm /usr/local/bin/helm
     chmod +x /usr/local/bin/helm
     
-    rm -rf helm-v${HELM_VERSION}-linux-amd64.tar.gz linux-amd64
+    rm -rf helm-v${HELM_3_VERSION}-linux-amd64.tar.gz linux-amd64
 }
 
 install_kubectl() {
@@ -79,7 +96,8 @@ install_skaffold() {
 
 setup
 install_kubectl
-install_helm
+install_helm_2
+install_helm_3
 install_doctl
 install_skaffold
 teardown

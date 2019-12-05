@@ -13,8 +13,12 @@ describe 'Dockerfile' do
         expect(kubectl_version).to include('v1.16.0')
     end
 
+    it 'has helm2' do
+        expect(helm_2_version).to include('2.16.1')
+    end
+
     it 'has helm' do
-        expect(helm_version).to include('2.14.3')
+        expect(helm_3_version).to include('3.0.0')
     end
 
     it 'has doctl' do
@@ -29,7 +33,11 @@ describe 'Dockerfile' do
         command('kubectl version').stdout
     end
 
-    def helm_version
+    def helm_2_version
+        command('helm2 version').stdout
+    end
+
+    def helm_3_version
         command('helm version').stdout
     end
 
